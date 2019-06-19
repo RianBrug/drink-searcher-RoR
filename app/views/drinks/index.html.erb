@@ -19,18 +19,26 @@
     <%= form_tag do %>
       <div class="simple-form">
         <div class="simple-form__input">
-          <input class="form-control form-control-lg" type="text" placeholder="Try a Martini..">
+          <input class="form-control form-control-lg" name="search" type="text" placeholder="Try a Martini..">
         </div>
         <div class="simple-form__btn">
           <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
         </div>
       </div>
+    <% end %>
 
-      <div class="advanced-form" style="display:none;">
-        User inputs to search a collection of drinks based on given recommendations.
-      </div>
+<div class="advanced-form" style="display:none">
+    <%= form_tag do %>
+        <button type="submit" class="btn btn-outline-primary btn-lg" name="distilled">Distilleds</button>
+        <input class="form-control form-control-lg" name="distilled" type="hidden" value="distilled"/>
+    <% end %>
+
+    <%= form_tag do %>
+        <button type="submit" class="btn btn-outline-primary btn-lg" name="extra_cold">Extra-cold</button>
+        <input class="form-control form-control-lg" name="extra_cold" type="hidden" value="extra_cold"/>
     <% end %>
   </div>
+</div>
 
   <div class="drinks-list">
     <% @drinks.each do |drink| %>
